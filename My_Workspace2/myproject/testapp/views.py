@@ -10,3 +10,6 @@ def myclass(request):
     v = "This is my AI-DS class"
     return HttpResponse(v)
 # Create your views here.
+def myname(request):
+    name ="<h1>Mustafa Qasim Ali</h1>"
+    return HttpResponse(name)
