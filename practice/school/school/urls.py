@@ -1,5 +1,5 @@
 """
-URL configuration for school project.
+URL configuration for day2project project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
@@ -16,14 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from myapp import views
-from exam import views as r
+from django.conf.urls import include
 
 urlpatterns = [
-    path('home/',views.home),
-    path('about/',views.about),
-    path('contact/',views.contact),
-    path('quiz/',r.testpaper),
-    path('result/',r.result),
+    path('myapp/',include('myapp.urls')),
+    path('exam/',include('exam.urls')),
     path('admin/', admin.site.urls),
 ]
