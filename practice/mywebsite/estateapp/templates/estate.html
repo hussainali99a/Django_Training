@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Website</title>
+    <style>
+        /* General styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #009688; /* Updated color */
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333; /* Keep it dark for readability */
+    font-weight: bold;
+}
+
+.search-bar input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Hero Section */
+/* Hero Section */
+.hero {
+    background-image: url('./imf/building.jpg');
+    background-size:cover;
+    background-position: center;
+    height: 100vh;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.hero-content {
+    max-width: 600px;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.hero .search-bar-hero {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.search-bar-hero input {
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    flex: 1;
+}
+
+.search-bar-hero button {
+    padding: 10px 20px;
+    border-radius: 4px;
+    background-color: #e91e63;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+
+/* ----------------------------------------------------------------- */
+/* end of hero section  */
+
+/* Services Section */
+.services {
+    padding: 50px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.service-card img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.service-card h3 {
+    margin-top: 10px;
+    color: #333333;
+}
+
+/* Properties Section */
+.properties {
+    padding: 50px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.properties h2 {
+    margin-bottom: 30px;
+    color: #009688; /* Updated color */
+}
+
+.property-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.property-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.property-card p {
+    color: #333;
+}
+
+.view-all {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #e91e63; /* Pink color for the link */
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    padding: 20px;
+    text-align: center;
+    background-color: #333333;
+    color: #ffffff;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+    .nav-links {
+        flex-direction: column;
+    }
+    .search-bar {
+        margin-top: 10px;
+    }
+    .services, .properties {
+        flex-direction: column;
+        align-items: center;
+    }
+    .property-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">Props</a>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Properties</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Find A Perfect Dream House</h1>
+            <p>Your ZIP code or City, e.g. New York</p>
+            <div class="search-bar-hero">
+                <input type="text" placeholder="Search...">
+                <button>Search</button>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="services">
+        <div class="service-card">
+            <img src="icon1.png" alt="New Properties">
+            <h3>New Properties</h3>
+        </div>
+        <div class="service-card">
+            <img src="icon2.png" alt="Contact Agent">
+            <h3>Contact Agent</h3>
+        </div>
+        <div class="service-card">
+            <img src="icon3.png" alt="Building for Sale">
+            <h3>Building for Sale</h3>
+        </div>
+        <div class="service-card">
+            <img src="icon4.png" alt="House for Sale">
+            <h3>House for Sale</h3>
+        </div>
+    </section>
+
+    <section class="properties">
+        <h2>Popular Properties</h2>
+        <div class="property-grid">
+            <div class="property-card">
+                <img src="property1.jpg" alt="Property 1">
+                <p>Property 1</p>
+            </div>
+            <div class="property-card">
+                <img src="property2.jpg" alt="Property 2">
+                <p>Property 2</p>
+            </div>
+            <!-- Add more property cards as needed -->
+        </div>
+        <a href="#" class="view-all">View all properties</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Real Estate Website</p>
+    </footer>
+</body>
+</html>
