@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testpaper</title>
+</head>
+<body>
+    <div>
+        <!-- <h2>{{question1 | upper}}</h2> filters-->
+        <h2>{{question1 | lower}}</h2>
+    </div>
+    <div>
+        {% for option in options %}
+        <div><input type="radio" name="Answer" id="">{{option}}</div>
+        {% endfor %}
+    </div>
+
+    <!-- <div>
+        <h2>{{question2}}</h2>
+    </div>
+    <div>
+        <div><input type="radio" name="Answer" id="">{{a1}}</div>
+        <div><input type="radio" name="Answer" id="">{{b1}}</div>
+        <div><input type="radio" name="Answer" id="">{{c1}}</div>
+        <div><input type="radio" name="Answer" id="">{{d1}}</div>
+        <div><input type="radio" name="Answer" id="">{{e1}}</div>
+    </div>
+    <div>
+        <h2>{{question3}}</h2>
+    </div>
+    <div>
+        <div><input type="radio" name="Answer" id="">{{a2}}</div>
+        <div><input type="radio" name="Answer" id="">{{b2}}</div>
+        <div><input type="radio" name="Answer" id="">{{c2}}</div>
+        <div><input type="radio" name="Answer" id="">{{d2}}</div>
+        <div><input type="radio" name="Answer" id="">{{e2}}</div>
+    </div> -->
+</body>
+</html>
