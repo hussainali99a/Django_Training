@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sagar Group of Institution</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+    <h1 class="head">Know About Programming</h1>
+    <h2 class="head"> By Mustafa Qasim Ali</h2>
+
+    <!-- Image Tag -->
+    <img src="{%static 'programming.jpg'%}" alt="Image Description" width="300" class="mainimg">
+    {% block content%}
+    {%endblock%}
+    <!-- Footer -->
+    <nav>
+        <a href="/python/">Python</a>
+        <a href="/cpp/">C++</a>
+        <a href="/java/">Java</a>
+        <a href="/javascript/">JavaScript</a>
+        <a href="/r/">R</a>
+    </nav>
+    <footer>
+        &copy; 2024 Sagar Group of Institution. All rights reserved.
+    </footer>
+
+</body>
+</html>
