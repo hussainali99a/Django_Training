@@ -1,0 +1,50 @@
+PS C:\Users\PC\Desktop\My_Workspace2\day6project> python manage.py shell
+Python 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+
+#Read :-
+>>> from dbapp.models import Employee
+>>> employee = Employees.objects.all().values()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'Employees' is not defined. Did you mean: 'Employee'?
+>>> employee = Employee.objects.all().values()  
+>>> print(employee) 
+<QuerySet [{'id': 4, 'eno': 5, 'ename': 'ankush', 'esal': 1234555.0}, {'id': 5, 'eno': 6, 'ename': 'Kashaf', 'esal': 100000.0}, {'id': 6, 'eno': 8, 'ename': 'Mustafa', 'esal': 1230000.0}]>
+
+#Creating a field:-
+>>> employee = Employee(eno = 15, ename = 'Ali',esal = 786000)
+>>> employee.save()
+>>> employee = Employee.objects.all().values()
+>>> print(employee)                             
+<QuerySet [{'id': 4, 'eno': 5, 'ename': 'ankush', 'esal': 1234555.0}, {'id': 5, 'eno': 6, 'ename': 'Kashaf', 'esal': 100000.0}, {'id': 6, 'eno': 8, 'ename': 'Mustafa', 'esal': 1230000.0}, {'id': 7, 'eno': 15, 'ename': 'Ali', 'esal': 786000.0}]>
+
+#delete
+>>> from dbapp.models import Employee
+>>> e = Employee.objects.filter(ename = 'Ali')
+>>> e.delete()
+(1, {'dbapp.Employee': 1})
+>>> employees = Employee.objects.all().values()
+>>> print(employees) 
+<QuerySet [{'id': 4, 'eno': 5, 'ename': 'ankush', 'esal': 1234555.0}, {'id': 5, 'eno': 6, 'ename': 'Kashaf', 'esal': 100000.0}, {'id': 6, 'eno': 8, 'ename': 'Mustafa', 'esal': 1230000.0}]>
+
+
+#update :-
+
+>>> from dbapp.models import Employee
+>>> employee = Employee.objects.all().values()
+>>> print(employee)
+<QuerySet [{'id': 4, 'eno': 5, 'ename': 'ankush', 'esal': 1234555.0}, {'id': 5, 'eno': 6, 'ename': 'Kashaf', 'esal': 100000.0}, {'id': 6, 'eno': 8, 'ename': 'Mustafa', 'esal': 1230000.0}]>
+>>> emp = Employee.objects.filter(ename = 'ankush').values()
+>>> print(emp)
+<QuerySet [{'id': 4, 'eno': 5, 'ename': 'ankush', 'esal': 1234555.0}]>
+>>> e = Employee()
+>>> e.id = emp[0]['id']
+>>> e.eno = emp[0]['eno']
+>>> e.ename = emp[0]['ename']
+>>> e.esal = 50000
+>>> e.save()
+>>> employee = Employee.objects.all().values()
+>>> print(employee)
+<QuerySet [{'id': 4, 'eno': 5, 'ename': 'ankush', 'esal': 50000.0}, {'id': 5, 'eno': 6, 'ename': 'Kashaf', 'esal': 100000.0}, {'id': 6, 'eno': 8, 'ename': 'Mustafa', 'esal': 1230000.0}]>
