@@ -1,0 +1,160 @@
+PS C:\Users\PC\Desktop\practice> django-admin startproject dbsystem
+PS C:\Users\PC\Desktop\practice> cd dbsystem
+PS C:\Users\PC\Desktop\practice\dbsystem> python manage.py startapp dbapp   
+PS C:\Users\PC\Desktop\practice\dbsystem> python manage.py makemigrations dbapp
+Migrations for 'dbapp':
+  dbapp\migrations\0001_initial.py
+    + Create model Student
+PS C:\Users\PC\Desktop\practice\dbsystem> python manage.py makemigrations
+No changes detected
+PS C:\Users\PC\Desktop\practice\dbsystem> python manage.py migrate dbapp
+Operations to perform:
+  Apply all migrations: dbapp
+Running migrations:
+  Applying dbapp.0001_initial... OK
+PS C:\Users\PC\Desktop\practice\dbsystem> python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, dbapp, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying sessions.0001_initial... OK
+PS C:\Users\PC\Desktop\practice\dbsystem> python manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 31, 2024 - 14:50:58
+Django version 5.1, using settings 'dbsystem.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+[31/Aug/2024 14:51:00] "GET / HTTP/1.1" 200 12068
+[31/Aug/2024 14:51:03] "GET /admin/ HTTP/1.1" 302 0
+[31/Aug/2024 14:51:03] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4160
+PS C:\Users\PC\Desktop\practice\dbsystem> python manage.py createsuperuser
+Username (leave blank to use 'pc'): mustafa
+Email address: mustafa123@gmail.com
+Password: 
+Password (again):
+The password is too similar to the email address.
+This password is too short. It must contain at least 8 characters.
+Bypass password validation and create user anyway? [y/N]: y
+Superuser created successfully.
+PS C:\Users\PC\Desktop\practice\dbsystem> python manage.py runserver      
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 31, 2024 - 14:52:18
+Django version 5.1, using settings 'dbsystem.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+[31/Aug/2024 14:52:20] "GET / HTTP/1.1" 200 12068
+[31/Aug/2024 14:52:25] "GET /admin/ HTTP/1.1" 302 0
+[31/Aug/2024 14:52:25] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4160
+[31/Aug/2024 14:52:39] "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[31/Aug/2024 14:52:39] "GET /admin/ HTTP/1.1" 200 6669
+PS C:\Users\PC\Desktop\practice\dbsystem> python manage.py shell
+Python 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from dbapp.models import Student
+>>> student = Student(sno = 1,sname = 'Mustafa' ,sbranch ='AIDS',spercent=8.5)
+>>> print(student) 
+Mustafa
+>>> student = Student.objects.all().values()
+>>> print(student) 
+<QuerySet []>
+>>> exit()
+PS C:\Users\PC\Desktop\practice\dbsystem> python manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 31, 2024 - 14:56:20
+Django version 5.1, using settings 'dbsystem.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+[31/Aug/2024 14:56:22] "GET / HTTP/1.1" 200 12068
+[31/Aug/2024 14:56:27] "GET /admin/ HTTP/1.1" 200 6669
+PS C:\Users\PC\Desktop\practice\dbsystem> python manage.py shell    
+Python 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from dbapp.models import Student
+>>> student.save()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'student' is not defined. Did you mean: 'Student'?
+>>> student = Student(sno = 1,sname = 'mustafa',sbranch = 'AIDS',spercent = 8.5)
+>>> student.save()
+>>> student = Student.objects.all().values()
+>>> print(student) 
+<QuerySet [{'id': 1, 'sno': 1, 'sname': 'mustafa', 'sbranch': 'AIDS', 'spercent': 8.5}]>
+>>> student = Student(sno = 2,sname = 'Nikhil',sbranch = 'AIDS',spercent = 9.5)  
+>>> student.save()
+>>> student = Student.objects.all().values()
+>>> print(student)
+<QuerySet [{'id': 1, 'sno': 1, 'sname': 'mustafa', 'sbranch': 'AIDS', 'spercent': 8.5}, {'id': 2, 'sno': 2, 'sname': 'Nikhil', 'sbranch': 'AIDS', 'spercent': 9.5}]>    
+>>> student = Student(sno = 3,sname = 'Nikhlesh',sbranch = 'CSE',spercent = 7.5)  
+>>> student.save()
+>>> student = Student.objects.all().values()
+>>> print(student)
+<QuerySet [{'id': 1, 'sno': 1, 'sname': 'mustafa', 'sbranch': 'AIDS', 'spercent': 8.5}, {'id': 2, 'sno': 2, 'sname': 'Nikhil', 'sbranch': 'AIDS', 'spercent': 9.5}, {'id': 3, 'sno': 3, 'sname': 'Nikhlesh', 'sbranch': 'CSE', 'spercent': 7.5}]>
+>>> student = Student(sno = 4,sname = 'ankush',sbranch = 'AIDS',spercent = 7.5)  
+>>> student.save()
+>>> student = Student.objects.all().values()
+>>> print(student)
+<QuerySet [{'id': 1, 'sno': 1, 'sname': 'mustafa', 'sbranch': 'AIDS', 'spercent': 8.5}, {'id': 2, 'sno': 2, 'sname': 'Nikhil', 'sbranch': 'AIDS', 'spercent': 9.5}, {'id': 3, 'sno': 3, 'sname': 'Nikhlesh', 'sbranch': 'CSE', 'spercent': 7.5}, {'id': 4, 'sno': 4, 'sname': 'ankush', 'sbranch': 'AIDS', 'spercent': 7.5}]>
+>>> exit()
+PS C:\Users\PC\Desktop\practice\dbsystem> python manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 31, 2024 - 15:13:01
+Django version 5.1, using settings 'dbsystem.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+[31/Aug/2024 15:13:04] "GET / HTTP/1.1" 200 12068
+PS C:\Users\PC\Desktop\practice\dbsystem> python manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 31, 2024 - 15:13:27
+Django version 5.1, using settings 'dbsystem.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+[31/Aug/2024 15:13:28] "GET / HTTP/1.1" 200 12068
+[31/Aug/2024 15:13:33] "GET /admin/ HTTP/1.1" 200 6669
+[31/Aug/2024 15:13:42] "GET /admin/dbapp/student/ HTTP/1.1" 200 9864
+[31/Aug/2024 15:13:42] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[31/Aug/2024 15:13:54] "GET /admin/ HTTP/1.1" 200 6669
+[31/Aug/2024 15:13:56] "GET /admin/dbapp/student/ HTTP/1.1" 200 9864
+[31/Aug/2024 15:13:56] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[31/Aug/2024 15:14:01] "GET /admin/dbapp/student/4/change/ HTTP/1.1" 200 10674
+[31/Aug/2024 15:14:01] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[31/Aug/2024 15:14:04] "GET /admin/dbapp/student/ HTTP/1.1" 200 9864
+---------------------------------------------------
+exit()
