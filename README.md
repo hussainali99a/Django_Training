@@ -1,5 +1,2 @@
-# Django_Training
-```
-my name is Mustafa
+### Django_Training
 
-```
