@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <style>
+        .get{
+            display: flex;
+            flex-direction: column;
+            border: 2px solid black;
+            justify-content: center;
+            gap: 2px;
+            width: 100px;
+            align-items: center;
+            margin-left: 37%;
+            
+        }
+    </style>
+
+</head>
+<body>
+        {% for book in books %}
+            <div class="get">
+                <div class="entry"> Name: {{book.bname}}</div>
+                <div class="entry">Price: {{book.bprice}}</div>
+            </div><br>
+            
+        {% endfor %}
+</body>
+</html>

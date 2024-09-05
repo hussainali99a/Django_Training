@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store</title>
+    <style>
+        .head{
+            font-weight: bold;
+            background-color: grey;
+            text-align: center;
+            color: white;
+            font-family: sans-serif;
+        }
+        .form{
+            padding-top: 20px;
+            display: flex;
+            justify-content: center;
+            width: 300px;
+            border:2px solid black;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            border-radius: 30px;
+            margin-left: 37%;
+        }
+        input{
+            
+            height: 20px;
+        }
+        label{
+            color:grey;
+            font-family: sans-serif;
+
+        }
+        .sub{
+            width: 90px;
+            height: 40px;
+            border-radius: 10px;
+        }
+        .bu{
+            padding-bottom: 10px;
+        }
+        .sub:hover{
+            background-color: gray;
+        }
+        
+    </style>
+</head>
+<body>
+    <div>
+        <h1 class="head">Store your Details Here</h1>
+    </div>
+    <div>
+        <form action="{% url 'detailsapp:bookentry'%}" method="post" class="form">
+            {% csrf_token %}
+            <div class="field">
+                <label for="bookname" >Book_name :</label>
+                <input type="text"  name = "bookname" placeholder="Enter your book name...">
+            </div>
+            <div class="field">
+                <label for="bookprice">Book_price :</label>
+                <input type="text" name = "bookprice" placeholder="Enter your book book price...">
+            </div>
+            <div class="bu">
+                <button class="sub">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

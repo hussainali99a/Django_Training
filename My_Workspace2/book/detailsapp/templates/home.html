@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System </title>
+    <Style>
+        .head{
+            background-color: aquamarine;
+        }
+        .heading{
+            font-weight: bold;
+            font-family: sans-serif;
+            text-align: center;
+            margin-top: 0px ;
+        }
+        .button{
+            display: flex;
+            justify-content: center;
+        }
+        .bu{
+            width: 100px;
+            height: 50px;
+            border: 2px black solid;
+            border-radius: 20px;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+    </Style>
+</head>
+<body>
+    <div class="head">
+        <h1 class="heading">Book Management System</h1>
+    </div>
+    <div class="button">
+        <button class="bu"><a href="{% url 'detailsapp:store' %}">Store</a></button>
+        <button class="bu"><a href="{% url 'detailsapp:get' %}">Get</a></button>
+    </div>
+</body>
+</html>
